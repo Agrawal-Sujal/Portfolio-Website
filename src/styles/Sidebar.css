@@ -1,0 +1,133 @@
+/* ================= SIDEBAR ================= */
+.sidebar {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: auto;
+
+  background: var(--bg-card);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition:
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.sidebar:hover {
+  width: 240px;
+  border-color: rgba(255, 130, 51, 0.4);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 130, 51, 0.15);
+}
+
+/* ================= CONTENT ================= */
+.sidebar-content {
+  padding: 2rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  /* align-items:center; */
+  height: 100%;
+}
+
+/* ================= LOGO ================= */
+.logo-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 2rem;
+
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.sidebar:hover .logo-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ================= NAV ================= */
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  /* align-items:center; */
+  gap: 0.35rem;
+}
+
+/* NAV ITEM */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.85rem 0.55rem;
+  border-radius: 14px;
+
+  color: var(--text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+
+  white-space: nowrap;
+  position: relative;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+/* Hover */
+.nav-item:hover {
+  background: rgba(255, 130, 51, 0.12);
+  color: var(--accent-primary);
+  transform: translateX(4px);
+}
+
+/* Active */
+.nav-item.active {
+  background: rgba(255, 130, 51, 0.18);
+  color: var(--accent-primary);
+}
+
+/* Active indicator bar */
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: -0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  border-radius: 4px;
+  background: var(--accent-primary);
+}
+
+/* ================= ICON ================= */
+.nav-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+/* ================= LABEL ================= */
+.nav-label {
+  opacity: 0;
+  transform: translateX(-6px);
+  font-weight: 500;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.sidebar:hover .nav-label {
+  opacity: 1;
+  transform: translateX(0);
+}

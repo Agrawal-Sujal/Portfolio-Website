@@ -1,0 +1,86 @@
+/* Top Bar Container */
+.top-bar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 72px;
+    max-width: 700px;
+    /* slightly wider to fit icons */
+    width: 90%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    /* split nav & icons */
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 0 1.5rem;
+}
+
+/* Navigation Links */
+.top-nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+/* Link Styling */
+.top-nav-link {
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: color 0.25s ease;
+}
+
+/* Active Link */
+.top-nav-link.active {
+    color: var(--accent-primary);
+}
+
+/* Underline Animation */
+.top-nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: width 0.3s ease;
+}
+
+.top-nav-link:hover::after,
+.top-nav-link.active::after {
+    width: 100%;
+}
+
+/* Icon Section */
+.top-icons {
+    display: flex;
+    gap: 0.6rem;
+    background: rgba(255, 130, 51, 0.08);
+    padding: 6px 10px;
+    border-radius: 12px;
+    /* rounded container */
+}
+
+.top-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.top-icons a:hover {
+    background: rgba(255, 130, 51, 0.18);
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+}

@@ -1,0 +1,33 @@
+/* Achievement Cards */
+.achievement-small {
+    grid-column: span 3;
+    text-align: center;
+}
+
+.achievement-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    padding: 12px;
+    background: linear-gradient(135deg, rgba(255, 130, 51, 0.1), rgba(255, 159, 95, 0.1));
+    border-radius: 12px;
+    color: var(--accent-primary);
+}
+
+.achievement-year {
+    font-size: 0.85rem;
+    color: var(--accent-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.achievement-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
