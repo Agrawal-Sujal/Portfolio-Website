@@ -6,17 +6,19 @@ const Contact = () => {
   return (
     <div className="bento-grid" id="contact">
       <div className="bento-card contact-card">
-        <h2 className="contact-title">Let's Work Together</h2>
+        <h2 className="contact-title">Let’s Work Together</h2>
         <p className="contact-text">
-          I'm always interested in hearing about new projects and opportunities.
+          I’m interested in software engineering roles, internships, and
+          collaborative projects. Always happy to discuss ideas around backend
+          systems, mobile apps, and problem-solving at scale.
         </p>
         <div className="contact-links">
-          <a href="mailto:dev@example.com" className="contact-btn">
+          <a href="mailto:sujalagrawal2703@gmail.com" className="contact-btn">
             <Mail size={20} />
             Send Email
           </a>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Agrawal-Sujal"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-btn"
@@ -25,7 +27,7 @@ const Contact = () => {
             View GitHub
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/sujal-agrawal-823959296/"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-btn"

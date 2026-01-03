@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       <p>
-        © 2026 Software Developer. Built with React + Vite • Bento Grid Design
+        Build by Sujal Agrawal. Hosted on AWS.
       </p>
     </footer>
   );

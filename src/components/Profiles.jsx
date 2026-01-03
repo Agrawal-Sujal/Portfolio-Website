@@ -1,11 +1,8 @@
-import React, { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { codingProfiles } from "../data/profiles";
 import "../styles/Profiles.css";
 
 const Profiles = () => {
-  const [hoveredCard, setHoveredCard] = useState(null);
-
   return (
     <div className="bento-grid" id="profiles">
       <div className="section-title-card">
@@ -13,25 +10,25 @@ const Profiles = () => {
       </div>
 
       {codingProfiles.map((profile, index) => (
-        <div
-          key={index}
-          className="bento-card profile-card"
-          onMouseEnter={() => setHoveredCard(`profile-${index}`)}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          <div className="profile-platform">{profile.platform}</div>
-          <div className="profile-username">@{profile.username}</div>
-          <div className="profile-rating">
-            {profile.rating || profile.stats}
+        <div key={index} className="bento-card profile-card">
+          {/* Image */}
+          <div className="profile-image-wrapper">
+            <img src={profile.image} alt={profile.platform} />
           </div>
+
+          {/* Text */}
+          <h3 className="profile-platform">{profile.platform}</h3>
+          <div className="profile-username">@{profile.username}</div>
+          <div className="profile-rating">{profile.rating}</div>
+
+          {/* Button */}
           <a
             href={profile.link}
             target="_blank"
             rel="noopener noreferrer"
             className="profile-link"
           >
-            View Profile
-            <ExternalLink size={14} />
+            View Profile <ExternalLink size={14} />
           </a>
         </div>
       ))}

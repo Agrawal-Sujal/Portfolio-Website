@@ -4,7 +4,7 @@
 
 /* ================= GRID ================= */
 .skills-grid {
-  padding:4rem 1.5rem;
+  padding:4rem 0rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 2rem; /* more breathing room */

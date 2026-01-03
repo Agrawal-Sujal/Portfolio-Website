@@ -131,3 +131,10 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+/* ================= HIDE SIDEBAR ON MOBILE ================= */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
