@@ -1,7 +1,8 @@
 import leetcode from "../assets/profiles/leetcode.png"
 import github from "../assets/profiles/github.png"
 import cf from "../assets/profiles/cf.png"
-import cc from "../assets/profiles/cc.png"
+import cc from "../assets/profiles/cc.png";
+import atcoder from "../assets/profiles/atcoder.png";
 export const codingProfiles = [
   {
     platform: "LeetCode",
@@ -23,6 +24,13 @@ export const codingProfiles = [
     rating: "4★ Coder",
     image: cc,
     link: "https://www.codechef.com/users/sujalagrawal47",
+  },
+  {
+    platform: "Atcoder",
+    username: "Sujalagrawal",
+    rating: "8 Kyu (413)",
+    image: atcoder,
+    link: "https://atcoder.jp/users/Sujalagrawal",
   },
   {
     platform: "GitHub",

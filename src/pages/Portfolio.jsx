@@ -45,7 +45,7 @@ export default function Portfolio() {
   return (
     <div className="portfolio">
       {/* Top Navigation Bar */}
-      <TopBar />
+      {/* <TopBar /> */}
 
       {/* Floating Sidebar */}
       <Sidebar

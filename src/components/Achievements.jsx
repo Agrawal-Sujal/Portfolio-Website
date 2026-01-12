@@ -34,9 +34,9 @@ const Achievements = () => {
           {/* Footer */}
           <div className="achievement-footer">
             <span className="achievement-date">{item.date}</span>
-            <a href={item.details} className="achievement-btn">
+            {/* <a href={item.details} className="achievement-btn">
               More Details
-            </a>
+            </a> */}
           </div>
         </div>
       ))}

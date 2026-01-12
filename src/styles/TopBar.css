@@ -1,10 +1,23 @@
 /* Top Bar Container */
 .top-bar {
+    --bg-primary: #000000;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #252525;
+    --accent-primary: #ff8233;
+    --accent-secondary: #ff9f5f;
+    --accent-dark: #d96d28;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #2a2a2a;
+
+    font-family: 'Inter', sans-serif;
+
+    padding-top: 80px;
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    height: 72px;
+    height: 65px;
     max-width: 700px;
     /* slightly wider to fit icons */
     width: 90%;

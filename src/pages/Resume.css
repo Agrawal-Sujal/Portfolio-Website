@@ -1,0 +1,443 @@
+/* =====================
+   Theme Variables
+===================== */
+:root {
+    --bg-primary: #000000;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #252525;
+    --accent-primary: #ff8233;
+    --accent-secondary: #ff9f5f;
+    --accent-dark: #d96d28;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #2a2a2a;
+}
+
+/* =====================
+   Global
+===================== */
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-primary);
+}
+
+/* Push resume below TopBar */
+.resume-page {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+/* =====================
+   Resume Card
+===================== */
+.resume-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 70px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-family: "Georgia", "Times New Roman", serif;
+    line-height: 1.5;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* =====================
+   Header
+===================== */
+.resume-header {
+    text-align: center;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--accent-primary);
+}
+
+/* Name + Download button */
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+/* Center name */
+.name {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+/* =====================
+   Download Resume Button
+===================== */
+.download-resume {
+    position: absolute;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(255, 130, 51, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.download-resume:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 130, 51, 0.5);
+}
+
+/* =====================
+   Contact Row
+===================== */
+.contact {
+    font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    color: var(--text-secondary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.contact span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.contact a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact a:hover {
+    color: var(--accent-primary);
+}
+
+/* =====================
+   Sections
+===================== */
+section {
+    margin-top: 28px;
+}
+
+section h2 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--accent-primary);
+}
+
+/* =====================
+   Two-column rows
+===================== */
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+}
+
+.row p {
+    margin: 3px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.row strong {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-style: normal;
+}
+
+.content{
+    margin-left: 12px;
+}
+
+.right {
+    text-align: right;
+    white-space: nowrap;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.right p {
+    text-align: right;
+}
+
+/* =====================
+   Lists
+===================== */
+ul {
+    margin: 8px 0 0 18px;
+    padding: 0px 10px;
+}
+
+li {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+li strong {
+    color: var(--text-primary);
+    font-weight: 540;
+}
+
+/* =====================
+   Coding Profiles Special
+===================== */
+section>p {
+    font-size: 14px;
+    margin: 8px 0;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section>p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+section>p a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+section>p a:hover {
+    color: var(--accent-primary);
+}
+
+/* =====================
+   Projects
+===================== */
+.project {
+    margin-bottom: 22px;
+}
+
+.project h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.project span {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.project>a {
+    font-size: 13px;
+    color: var(--accent-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    float: right;
+    margin-top: -20px;
+}
+
+.project>a:hover {
+    color: var(--accent-primary);
+}
+
+.project ul {
+    margin-top: 8px;
+    clear: both;
+}
+
+
+/* =====================
+   Technical Skills
+===================== */
+section p {
+    font-size: 14px;
+    margin: 8px 0;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+section p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+/* =====================
+   Positions Section
+===================== */
+.position h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.position span {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.position .right {
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    float: right;
+    margin-top: -20px;
+}
+
+.position ul {
+    margin-top: 8px;
+    clear: both;
+}
+
+section .row:last-child {
+    margin-bottom: 0;
+}
+
+/* =====================
+   Responsive
+===================== */
+@media (max-width: 768px) {
+    .resume-page {
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+
+    .resume-container {
+        padding: 32px 28px;
+        margin: 0 12px;
+    }
+
+    .name {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .download-resume {
+        position: static;
+        margin-top: 10px;
+    }
+        .content {
+            margin-left: 0px;
+        }
+                ul {
+                    margin: 8px 0 0 18px;
+                    padding: 0px 2px;
+                }
+
+    .contact {
+        gap: 14px;
+        font-size: 12px;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .right {
+        text-align: left;
+    }
+
+    .right p {
+        text-align: left;
+    }
+
+    section h2 {
+        font-size: 15px;
+    }
+
+    .project>a {
+        float: none;
+        margin-top: 0;
+        display: inline-block;
+        margin-bottom: 4px;
+    }
+    .position .right{
+        float: none;
+            margin-top: 0;
+            display: inline-block;
+            margin-bottom: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-container {
+        padding: 24px 20px;
+        margin: 0 8px;
+        border-radius: 4px;
+    }
+        .content {
+            margin-left: 0px;
+        }
+        ul {
+            margin: 8px 0 0 18px;
+            padding: 0px 2px;
+        }
+
+    .name {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+
+    .contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    section {
+        margin-top: 24px;
+    }
+}

@@ -45,12 +45,12 @@ const Projects = () => {
             </ul>
 
             <div className="project-actions">
-  <a
+  {/* <a
     href={project.details}
     className="project-btn secondary"
   >
     More Details
-  </a>
+  </a> */}
 
   <a
     href={project.apk}
