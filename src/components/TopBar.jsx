@@ -106,7 +106,7 @@ const TopBar = () => {
         </div>
 
         <div>
-          <div className="visit-counter-label">Profile Views</div>
+          <div className="visit-counter-label">Total Visits</div>
           <div className="visit-counter-value">{views.toLocaleString()}</div>
         </div>
       </div>
