@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import profilePhoto from "../assets/photo.jpeg";
 import "../styles/Header.css";
 
