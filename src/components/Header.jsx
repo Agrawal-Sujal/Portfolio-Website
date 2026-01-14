@@ -7,9 +7,9 @@ const Header = () => {
     <header className="header">
       <div className="header-content">
         <h1 className="header-title">Hi, I am Sujal Agrawal</h1>
-        <p className="header-subtitle">
+        {/* <p className="header-subtitle">
           Building meaningful products through thoughtful problem-solving
-        </p>
+        </p> */}
 
         {/* Role badges */}
         <div className="role-badges">

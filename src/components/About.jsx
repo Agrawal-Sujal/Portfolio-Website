@@ -30,9 +30,12 @@ const About = () => {
           </p>
           <p>
             I have built Android and web applications such as Chaperone, a
-            safety app for seniors, and CropChain, a blockchain based tool that
-            helps farmers manage their data with transparency. I work mainly
-            with Kotlin, Jetpack Compose, Django, and Solidity.
+            peer-to-peer companionship and safety platform connecting
+            seniors and mobility-challenged users with verified companions using
+            real-time GPS tracking and secure payments, and CropChain, a
+            decentralized Android app enabling farmers to upload crop images and
+            receive expert feedback using blockchain smart contracts, IPFS,
+            MetaMask, and Firebase FCM.
           </p>
           <p>
             I am now looking for software engineering roles where I can apply my

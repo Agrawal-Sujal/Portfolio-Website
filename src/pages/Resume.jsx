@@ -171,8 +171,9 @@ const Resume = () => {
                 <ul>
                   <li>
                     Built a <strong>peer-to-peer companionship platform</strong>{" "}
-                    connecting seniors/mobility-challenged individuals to
-                    verified companions.
+                    connecting seniors/mobility-challenged individuals with
+                    verified companions to reduce isolation and encourage
+                    physical activity.
                   </li>
                   <li>
                     Developed a <strong>real-time GPS tracking system</strong>{" "}
