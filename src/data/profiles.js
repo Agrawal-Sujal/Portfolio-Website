@@ -14,7 +14,7 @@ export const codingProfiles = [
   {
     platform: "Codeforces",
     username: "sujalagrawal",
-    rating: "Specialist (1574)",
+    rating: "Expert (1621)",
     image: cf,
     link: "https://codeforces.com/profile/sujalagrawal",
   },
