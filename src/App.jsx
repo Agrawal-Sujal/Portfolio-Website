@@ -1,20 +1,49 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import TopBar from "./components/TopBar";
-import Portfolio from "./pages/Portfolio";
-import Blog from "./pages/Blog";
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { PortfolioProvider, usePortfolio } from "./data/PortfolioContext";
+import Shell from "./components/Shell";
+import Home from "./pages/Home";
 import Resume from "./pages/Resume";
+import Projects from "./pages/Projects";
 
-function App() {
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function Content() {
+  const { status } = usePortfolio();
+
+  if (status === "loading") {
+    return (
+      <div className="splash" role="status" aria-label="Loading">
+        <span className="splash-dot" />
+      </div>
+    );
+  }
+
   return (
-    <Router>
-      <TopBar />
+    <Shell>
+      <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Portfolio />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/" element={<Home />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="*" element={<Home />} />
       </Routes>
-    </Router>
+    </Shell>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <PortfolioProvider>
+      <BrowserRouter>
+        <Content />
+      </BrowserRouter>
+    </PortfolioProvider>
+  );
+}

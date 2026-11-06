@@ -1,321 +1,207 @@
-import "./resume.css";
-import TopBar from "../components/TopBar";
+import { usePortfolio } from "../data/PortfolioContext";
+import Icon from "../components/Icon";
+import { ResumeHead } from "../components/Section";
+import resumePdf from "../data/Resume.pdf";
 
-const Resume = () => {
+const range = (item) => [item.start, item.end].filter(Boolean).join(" – ");
+
+export default function Resume() {
+  const { data } = usePortfolio();
+  const { profile, skills, experience, education, achievements, profiles, certifications, por = [] } = data;
+
+  const skillCards = [
+    { label: "Programming Languages", items: skills.languages },
+    { label: "Core CS Fundamentals", items: skills.fundamentals },
+    { label: "Android Development", items: skills.android },
+    { label: "Backend Development", items: skills.backend },
+    { label: "Web & Tools", items: skills.webTools || skills.tools },
+    { label: "Technologies", items: !skills.android && !skills.backend ? skills.technologies : null },
+    { label: "Tools", items: !skills.webTools ? skills.tools : null },
+  ].filter((card) => card.items && card.items.length > 0);
+
   return (
-    <>
-      {/* <TopBar /> */}
-
-      <div className="resume-page">
-        <div className="resume-container">
-          <header className="resume-header">
-            <div className="header-top">
-              <h1 className="name">Sujal Agrawal</h1>
-
-              <a
-                className="download-resume"
-                href="https://portfolio-sujal.s3.ap-south-1.amazonaws.com/Sujal's_Resume_v2.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download
-              </a>
-            </div>
-            <div className="contact">
-              <span>📞 +91-8799283364, +91-6232203839</span>
-              <span>
-                📧{" "}
-                <a href="mailto:sujalagrawal2703@gmail.com">
-                  sujalagrawal2703@gmail.com
-                </a>
-              </span>
-              <span>
-                💼{" "}
-                <a
-                  href="https://www.linkedin.com/in/sujal-agrawal-823959296/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </span>
-              <span>
-                💻{" "}
-                <a
-                  href="https://sujalagrawal.in"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Portfolio
-                </a>
-              </span>
-            </div>
-          </header>
-
-          {/* Education */}
-          <section>
-            <h2>Education</h2>
-            <div className="content">
-              <div className="row">
-                <div>
-                  <strong>Indian Institute of Information Technology</strong>
-                  <p>
-                    Bachelor of Technology in Computer Science and Engineering
-                    (GPA: 8.0)
-                  </p>
-                </div>
-                <div className="right">
-                  <p>Aug 2023 – May 2027</p>
-                  <p>Jabalpur, India</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Coding Profiles */}
-          <section>
-            <h2>Coding Profiles</h2>
-            <p>
-              <div>
-                • <strong>Codeforces:</strong> Specialist (1597){" "}
-                <a
-                  href="https://codeforces.com/profile/sujalagrawal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  [Link]
-                </a>
-              </div>
-              <div>
-                • <strong>LeetCode:</strong> Knight (2100){" "}
-                <a
-                  href="https://leetcode.com/u/sujalagrawal47/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  [Link]
-                </a>
-              </div>
-              <div>
-                • <strong>CodeChef:</strong> 4★ (1935){" "}
-                <a
-                  href="https://www.codechef.com/users/sujalagrawal47"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  [Link]
-                </a>
-              </div>
-            </p>
-          </section>
-
-          {/* Achievements */}
-          <section>
-            <h2>Achievements</h2>
-            <ul>
-              <li>
-                Winner of <strong>Can You Hack It</strong>, a 24-hour
-                intra-college hackathon among 50+ teams.
-              </li>
-              <li>
-                Secured <strong>1st Runner-up</strong> in the{" "}
-                <strong>Aidothon Walker App Challenge 2025</strong> among 100+
-                teams
-              </li>
-              <li>
-                Secured <strong>1st Runner-up</strong> in{" "}
-                <strong>Code Arena</strong>
-                (Inter-College Coding Contest) among 100+ participants.
-              </li>
-              <li>
-                Secured <strong>2nd Runner-up</strong> in{" "}
-                <strong>Newbie</strong> (Intra-College Coding Contest) among
-                350+ participants.
-              </li>
-              <li>
-                Attained a <strong>Global Rank of 336</strong> among 30,000+
-                participants in <strong>Codeforces Round 993.</strong>
-              </li>
-              <li>
-                Attained a <strong>Global Rank of 378</strong> among 30,000+
-                participants in <strong>LeetCode Weekly Contest 464.</strong>
-              </li>
-              <li>
-                Attained a <strong>Global Rank of 18</strong> in{" "}
-                <strong>CodeChef Starters 182.</strong>
-              </li>
-              <li>
-                Solved <strong>1000+ problems</strong> across competitive
-                programming platforms, including LeetCode, CodeChef, and
-                Codeforces.
-              </li>
-            </ul>
-          </section>
-
-          {/* Projects */}
-          <section>
-            <h2>Projects</h2>
-            <div className="content">
-              <div className="project">
-                <h3>
-                  Chaperone{" "}
-                  <span>| Android, Django, Razorpay, Maps, WebSockets</span>
-                </h3>
-                <a
-                  href="https://github.com/Agrawal-Sujal/Chaperone-Android"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                <ul>
-                  <li>
-                    Built a <strong>peer-to-peer companionship platform</strong>{" "}
-                    connecting seniors/mobility-challenged individuals with
-                    verified companions to reduce isolation and encourage
-                    physical activity.
-                  </li>
-                  <li>
-                    Developed a <strong>real-time GPS tracking system</strong>{" "}
-                    using <strong>Django Channels</strong> and{" "}
-                    <strong>Google Maps SDK</strong> for live safety monitoring.
-                  </li>
-                  <li>
-                    Integrated <strong>Razorpay SDK</strong> for secure payments
-                    and donation tracking with transparent role-based
-                    dashboards.
-                  </li>
-                </ul>
-              </div>
-
-              <div className="project">
-                <h3>
-                  CropChain <span>| Android, Solidity, FCM, MetaMask</span>
-                </h3>
-                <a
-                  href="https://github.com/sujalagrawal2/CropChain-Android"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                <ul>
-                  <li>
-                    Developed a decentralized app enabling farmers to upload
-                    crop images and receive expert feedback.
-                  </li>
-                  <li>
-                    Integrated <strong>blockchain smart contracts</strong> to
-                    ensure tamper-proof records and <strong>MetaMask</strong>{" "}
-                    for secure transactions.
-                  </li>
-                  <li>
-                    Utilized <strong>IPFS (Pinata)</strong> for decentralized
-                    storage and
-                    <strong> Firebase FCM</strong> for real-time expert response
-                    notifications.
-                  </li>
-                </ul>
-              </div>
-
-              <div className="project">
-                <h3>
-                  Niyam <span>| Android, Jetpack Compose, DRF</span>
-                </h3>
-                <a
-                  href="https://github.com/Agrawal-Sujal/Niyam"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-                <ul>
-                  <li>
-                    Developed a collaborative{" "}
-                    <strong>task management app</strong> supporting
-                    personal/group tasks using MVVM architecture.
-                  </li>
-                  <li>
-                    Implemented subtasks, real-time activity notifications, and
-                    a friend system with request functionalities.
-                  </li>
-                  <li>
-                    Designed a scalable backend using{" "}
-                    <strong>Django REST Framework</strong> to manage user data
-                    and task synchronization.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* Skills */}
-          <section>
-            <h2>Technical Skills</h2>
-            <div className="content">
-              <p>
-                <strong>Languages:</strong> C, C++, Java, Python, Kotlin,
-                JavaScript
-              </p>
-              <p>
-                <strong>Android:</strong> Android SDK, Jetpack Compose, XML
-              </p>
-              <p>
-                <strong>Backend:</strong> Django, Django REST Framework
-              </p>
-              <p>
-                <strong>Web & DB:</strong> HTML5, CSS3, React, Tailwind CSS,
-                SQLite, MySQL, PostgreSQL, MongoDB, Firebase
-              </p>
-              <p>
-                <strong>Tools:</strong> AWS, Vercel, Render, Railway, Git,
-                GitHub, Postman, Figma, GSAP, Three.js
-              </p>
-            </div>
-          </section>
-
-          {/* Positions */}
-          <section>
-            <h2>Positions of Responsibility</h2>
-            <div className="content">
-              <div className="position">
-                <h3>
-                  BitByte Core Member (TPC) <span>- IIIT Jabalpur</span>
-                </h3>
-                <div className="right">Aug 2024 – Present</div>
-
-                <ul>
-                  <li>
-                    Conducted workshops on Competitive Programming and Android
-                    Development for junior students.
-                  </li>
-                  <li>
-                    Assisted in organizing technical events,Contests and
-                    hackathons within the college.
-                  </li>
-                </ul>
-                {/* <p>Conducted CP & Android workshops, organized hackathons</p> */}
-              </div>
-              <div className="position">
-                <h3>
-                  Programming Mentor <span>- IIIT Jabalpur</span>
-                </h3>
-                <div className="right">Oct 2024 – Present</div>
-
-                <ul>
-                  <li>
-                    Helped juniors in CP and development, and guided them
-                    throughout their programming journey.
-                  </li>
-                </ul>
-                {/* <p>Mentored juniors in CP and development</p> */}
-              </div>
-            </div>
-          </section>
+    <article className="resume">
+      <header className="resume-head">
+        <div>
+          <h1 className="resume-name">{profile.name}</h1>
+          <p className="resume-sub">
+            {profile.role} • {profile.location}
+          </p>
         </div>
-      </div>
-    </>
-  );
-};
+        <div className="resume-actions no-print">
+          <a
+            className="btn btn-primary btn-md"
+            href={resumePdf}
+            download="Sujal_Agrawal_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="download" size={17} /> Download Resume
+          </a>
+        </div>
+      </header>
 
-export default Resume;
+      <section className="res-section">
+        <ResumeHead icon="layers">Technical Skills</ResumeHead>
+        <div className="skill-cards">
+          {skillCards.map((card) => (
+            <div key={card.label} className="card skill-card">
+              <h3 className="skill-card-label">{card.label}:</h3>
+              <ul className="chips commas">
+                {card.items.map((item) => (
+                  <li key={item} className="chip mono">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {experience.length > 0 && (
+        <section className="res-section">
+          <ResumeHead icon="briefcase">{profile.pages?.resume?.experience || "Work Experience"}</ResumeHead>
+          <ol className="timeline">
+            {experience.map((job) => (
+              <li key={job.id} className="tl-item">
+                <span className="tl-mark" aria-hidden="true" />
+                <div className="tl-head">
+                  <h3>{job.role}</h3>
+                  <span className="date-pill mono">{range(job)}</span>
+                </div>
+                <p className="tl-sub">
+                  <strong>{job.company}</strong>
+                  {job.location && (
+                    <>
+                      {" "}
+                      · <span className="muted">{job.location}</span>
+                    </>
+                  )}
+                </p>
+                <ul className="bullets">
+                  {(job.bullets || []).map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {education.length > 0 && (
+        <section className="res-section">
+          <ResumeHead icon="graduation">Education</ResumeHead>
+          <ol className="timeline">
+            {education.map((item) => (
+              <li key={item.id} className="tl-item">
+                <span className="tl-mark" aria-hidden="true" />
+                <div className="tl-head">
+                  <h3>{item.school}</h3>
+                  <span className="date-pill mono">{range(item)}</span>
+                </div>
+                <p className="tl-sub tl-sub-tight">{item.degree}</p>
+                <p className="muted">
+                  {[item.grade, item.location].filter(Boolean).join(" · ")}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {achievements.length > 0 && (
+        <section className="res-section">
+          <ResumeHead icon="trophy">Achievements</ResumeHead>
+          <div className="ach-grid">
+            {achievements.map((item) => (
+              <div key={item.id} className="card ach-card">
+                <h3 className="ach-title">{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {profiles.length > 0 && (
+        <section className="res-section">
+          <ResumeHead icon="code">Coding Profiles</ResumeHead>
+          <ul className="certs">
+            {profiles.map((item) => (
+              <li key={item.id}>
+                <a
+                  className="card cert cert-link"
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${item.platform} profile (opens in a new tab)`}
+                >
+                  <Icon name={item.icon || "code"} size={18} />
+                  <div>
+                    <p className="cert-title">{item.platform}</p>
+                    <p className="cert-issuer mono">
+                      {item.rating}
+                      {item.username ? ` · ${item.username}` : ""}
+                    </p>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {por.length > 0 && (
+        <section className="res-section">
+          <ResumeHead icon="user">Positions of Responsibility</ResumeHead>
+          <ol className="timeline">
+            {por.map((item) => (
+              <li key={item.id} className="tl-item">
+                <span className="tl-mark" aria-hidden="true" />
+                <div className="tl-head">
+                  <h3>{item.role}</h3>
+                  <span className="date-pill mono">{range(item)}</span>
+                </div>
+                <p className="tl-sub">
+                  <strong>{item.company}</strong>
+                  {item.location && (
+                    <>
+                      {" "}
+                      · <span className="muted">{item.location}</span>
+                    </>
+                  )}
+                </p>
+                <ul className="bullets">
+                  {(item.bullets || []).map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {certifications.length > 0 && (
+        <section className="res-section">
+          <ResumeHead icon="award">Certifications</ResumeHead>
+          <ul className="certs">
+            {certifications.map((item) => (
+              <li key={item.id}>
+                <div className="card cert">
+                  <Icon name="file" size={18} />
+                  <div>
+                    <p className="cert-title">{item.title}</p>
+                    <p className="cert-issuer mono">— {item.issuer}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+  );
+}

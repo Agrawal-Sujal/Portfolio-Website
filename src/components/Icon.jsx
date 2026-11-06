@@ -1,0 +1,67 @@
+import {
+  LuArrowRight,
+  LuArrowUpRight,
+  LuAward,
+  LuBriefcase,
+  LuChevronDown,
+  LuCloud,
+  LuCode,
+  LuDatabase,
+  LuDownload,
+  LuFileText,
+  LuGamepad2,
+  LuGitBranch,
+  LuGraduationCap,
+  LuHouse,
+  LuLayers,
+  LuMail,
+  LuMapPin,
+  LuPrinter,
+  LuServer,
+  LuSquareMousePointer,
+  LuTerminal,
+  LuTrophy,
+  LuUser,
+  LuVideo,
+  LuX,
+  LuZap,
+} from "react-icons/lu";
+import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+
+// Names here are what you can put in a Firestore `icon` field.
+const icons = {
+  "arrow-right": LuArrowRight,
+  "arrow-up-right": LuArrowUpRight,
+  award: LuAward,
+  briefcase: LuBriefcase,
+  "chevron-down": LuChevronDown,
+  cloud: LuCloud,
+  code: LuCode,
+  database: LuDatabase,
+  download: LuDownload,
+  file: LuFileText,
+  gamepad: LuGamepad2,
+  git: LuGitBranch,
+  github: FiGithub,
+  graduation: LuGraduationCap,
+  home: LuHouse,
+  layers: LuLayers,
+  linkedin: FiLinkedin,
+  mail: LuMail,
+  pin: LuMapPin,
+  printer: LuPrinter,
+  projects: LuSquareMousePointer,
+  server: LuServer,
+  terminal: LuTerminal,
+  trophy: LuTrophy,
+  twitter: FiTwitter,
+  user: LuUser,
+  video: LuVideo,
+  x: LuX,
+  zap: LuZap,
+};
+
+export default function Icon({ name, size = 18, ...rest }) {
+  const Component = icons[name] || LuCode;
+  return <Component size={size} aria-hidden="true" focusable="false" {...rest} />;
+}

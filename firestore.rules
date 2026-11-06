@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // The site only reads. Edit content from the Firebase console
+    // (or with `npm run seed`, which uses the Admin SDK and ignores these rules).
+    match /{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
