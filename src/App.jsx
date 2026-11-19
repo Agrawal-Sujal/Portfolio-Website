@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { PortfolioProvider, usePortfolio } from "./data/PortfolioContext";
 import Shell from "./components/Shell";
-import Home from "./pages/Home";
 import Resume from "./pages/Resume";
 import Projects from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,10 +29,11 @@ function Content() {
     <Shell>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/resume" element={<Resume />} />
+        <Route path="/" element={<Resume />} />
+        <Route path="/resume" element={<Navigate to="/" replace />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="*" element={<Home />} />
+        <Route path="/projects/:projectId" element={<ProjectDetail />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Shell>
   );

@@ -22,23 +22,21 @@ export default function Resume() {
   return (
     <article className="resume">
       <header className="resume-head">
-        <div>
+        <div className="resume-head-top">
           <h1 className="resume-name">{profile.name}</h1>
-          <p className="resume-sub">
-            {profile.role} • {profile.location}
-          </p>
+          <div className="resume-actions no-print">
+            <a
+              className="btn btn-primary btn-md"
+              href={resumePdf}
+              download="Sujal_Agrawal_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="download" size={17} /> Download Resume
+            </a>
+          </div>
         </div>
-        <div className="resume-actions no-print">
-          <a
-            className="btn btn-primary btn-md"
-            href={resumePdf}
-            download="Sujal_Agrawal_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="download" size={17} /> Download Resume
-          </a>
-        </div>
+        {profile.summary && <p className="resume-summary">{profile.summary}</p>}
       </header>
 
       <section className="res-section">

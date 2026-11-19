@@ -1,25 +1,29 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { usePortfolio } from "../data/PortfolioContext";
+import { PROJECT_DETAILS } from "../data/projectDetails";
 import Rail from "./Rail";
 import SidePanel from "./SidePanel";
 import NoticeToast from "./NoticeToast";
 
 const titles = {
   "/": "",
-  "/resume": "Resume",
   "/projects": "Projects",
 };
 
 export default function Shell({ children }) {
   const { data } = usePortfolio();
   const { pathname } = useLocation();
-  const { name, role } = data.profile;
+  const { name } = data.profile;
 
   useEffect(() => {
-    const page = titles[pathname];
-    document.title = page ? `${page} · ${name}` : `${name} · ${role}`;
-  }, [pathname, name, role]);
+    let page = titles[pathname];
+    if (!page && pathname.startsWith("/projects/")) {
+      const slug = pathname.slice("/projects/".length).split("/")[0];
+      page = PROJECT_DETAILS[slug]?.title || "Projects";
+    }
+    document.title = page ? `${page} · ${name}` : name;
+  }, [pathname, name]);
 
   return (
     <div className="shell">
