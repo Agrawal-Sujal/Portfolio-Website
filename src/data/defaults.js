@@ -7,12 +7,11 @@
  * Firestore layout (one document per item unless noted):
  *   profile/main          single document
  *   skills/main           single document
- *   highlights/{id}       home page stat cards
- *   proficiency/{id}      home page "Technical proficiency" cards
  *   experience/{id}       resume (shown under profile.pages.resume.experience)
  *   education/{id}        resume
  *   achievements/{id}     resume
  *   profiles/{id}         resume "Coding Profiles"
+ *   por/{id}              resume "Positions of Responsibility"
  *   certifications/{id}   resume (section hidden when empty)
  *   projects/{id}         projects page
  *
@@ -24,21 +23,10 @@
 export const defaults = {
   profile: {
     name: "Sujal Agrawal",
-    role: "Android & Backend Developer",
     location: "Jabalpur, India",
     avatar: "/avatar.jpg",
-    hero: {
-      struck: "Building Projects",
-      line: "Building Scalable",
-      accent: "Products",
-    },
-    greeting: "Hi, I'm",
-    intro:
-      "Aspiring Software Engineer and final-year B.Tech student with a strong foundation in Data Structures, Algorithms, and full-stack development. Experienced in building scalable web and Android applications, with a keen interest in scalable architectures and system design. Currently studying at",
-    affiliation: "IIIT Jabalpur",
-    affiliationUrl: "",
-    statusLine:
-      "I'm now looking for software engineering roles where I can apply my problem solving skills and build impactful, scalable products.",
+    summary:
+      "Aspiring Software Engineer and final-year B.Tech student with a strong foundation in Data Structures, Algorithms, and full-stack development. Experienced in building scalable web and Android applications, with a keen interest in scalable architectures and system design.",
     welcome: {
       title: "Glad to have you here.",
       text: "Feel free to reach out for collaborations or just a friendly hello!",
@@ -106,75 +94,6 @@ export const defaults = {
       "Figma",
     ],
   },
-
-  highlights: [
-    {
-      id: "leetcode",
-      order: 1,
-      icon: "terminal",
-      value: "2208",
-      label: "LeetCode Rating",
-      title: "Guardian",
-      text: "Global rank 154 among 40,000+ participants in LeetCode Weekly Contest 513.",
-    },
-    {
-      id: "icpc",
-      order: 2,
-      icon: "zap",
-      value: "Rank 500",
-      label: "ICPC Prelims",
-      title: "Chennai Regionals",
-      text: "Secured Rank 500 among 5,000+ teams in ICPC Preliminary Contest and qualified for Chennai Regionals.",
-    },
-  ],
-
-  // type "tags" → chips, "stats" → big numbers, "list" → icon rows
-  proficiency: [
-    {
-      id: "android",
-      order: 1,
-      type: "tags",
-      icon: "layers",
-      tone: "indigo",
-      title: "Android Development",
-      items: ["Android SDK", "Kotlin", "Jetpack Compose", "XML", "Room DB", "WorkManager"],
-    },
-    {
-      id: "backend-data",
-      order: 2,
-      type: "tags",
-      icon: "database",
-      tone: "green",
-      title: "Backend & Systems",
-      items: ["Spring Boot", "Django REST Framework", "Express.js", "REST API", "PostgreSQL", "MongoDB", "Redis", "Docker"],
-    },
-    {
-      id: "problem-solving",
-      order: 3,
-      type: "stats",
-      icon: "trophy",
-      tone: "amber",
-      title: "Problem Solving",
-      stats: [
-        { value: "2208", label: "LeetCode Guardian" },
-        { value: "1800+", label: "DSA Problems solved" },
-      ],
-    },
-    {
-      id: "tools",
-      order: 4,
-      type: "list",
-      icon: "code",
-      tone: "sky",
-      title: "Tools & Workflow",
-      list: [
-        { label: "Git & GitHub", icon: "git" },
-        { label: "Docker & Redis", icon: "cloud" },
-        { label: "Spring Boot & REST", icon: "terminal" },
-        { label: "Postman & AWS", icon: "layers" },
-      ],
-    },
-  ],
 
   experience: [
     {
@@ -346,25 +265,23 @@ export const defaults = {
       title: "PinPic",
       badge: "",
       bullets: [
-        "Developed a full-stack location-based photo journaling platform across Android (Kotlin, Jetpack Compose), Web (React, Tailwind), and Spring Boot, integrating automated EXIF geotagging, and privacy-controlled social photo sharing.",
-        "Engineered a custom 2D KD-Tree with O(N log N) median-split construction and O(depth) dynamic leaf insertions, supporting fast 2D range search and Euclidean radius querying.",
-        "Architected a hierarchical multi-zoom clustering pyramid (zooms 0–21) with weighted centroid aggregation; shifted spatial computation off the UI thread to execute O(log N + K) bounding-box viewport queries, rendering 5,000+ photo pins with zero UI latency.",
-        "Built an offline-first sync engine with Android WorkManager and Room DB, maintaining a local write-ahead sync queue and replicating mutations via cursor-based delta REST endpoints with conflict resolution.",
+        "Turn your camera roll into an interactive world map by automatically pinning photos to the exact places they were taken across Android and Web.",
+        "Explore thousands of memories smoothly as nearby photos group cleanly by neighborhood, city, or country while you zoom and pan.",
+        "Keep shooting even without signal — new photos and edits save locally on your device and sync automatically once you are back online.",
+        "Decide who sees every memory with per-photo Private, Friends, and Public sharing controls.",
       ],
       tech: [
         "Android",
         "Jetpack Compose",
         "Kotlin",
-        "Spring Boot",
-        "Google Maps SDK",
-        "Room DB",
-        "WorkManager",
         "React",
-        "Tailwind",
+        "Spring Boot",
+        "PostgreSQL",
+        "AWS S3",
       ],
       links: [
+        { label: "Live Website", url: "https://pinpic.sujalagrawal.in", kind: "live" },
         { label: "Source Code", url: "https://github.com/Agrawal-Sujal/PinPic", kind: "github" },
-        { label: "Download APK", url: "", kind: "download" },
       ],
       timeline: [
         { date: "June 2026", title: "Project Inception", text: "Architecture design & offline-first sync engine implementation." },
@@ -378,23 +295,22 @@ export const defaults = {
       title: "CtrlLink",
       badge: "",
       bullets: [
-        "Engineered a high-throughput URL shortener in Spring Boot featuring sequential Base62 encoding, custom aliases, and AES-encrypted password protection.",
-        "Optimized the redirect hot-path using Redis Hash entity caching, eliminating redundant database queries and reducing average latency by 37%.",
-        "Implemented asynchronous write-behind analytics using Redis and PostgreSQL, with distributed locking and batch synchronization to eliminate database writes on the redirect path.",
-        "Architected a fault-tolerant 3-node cluster using Nginx round-robin load balancing and atomic Lua-scripted rate limiting.",
-        "Benchmarked system using k6 across 3,000 URLs, sustaining 1,440+ req/sec with 3.16 ms avg latency (p95 < 8 ms) and 0% error rate over 173K+ requests under 100 concurrent users.",
+        "Shorten long URLs into clean, memorable links organized inside custom nested folders like work/reports or youtube/tutorials.",
+        "Keep sensitive links safe with optional password protection, expiration timers, and downloadable QR codes ready to share anywhere.",
+        "Track every click in real time through an interactive dashboard showing hourly trends, countries, devices, and referral sources.",
+        "Built for instant redirects that stay fast and reliable even under heavy traffic spikes.",
       ],
       tech: [
         "Spring Boot",
         "React",
+        "TypeScript",
         "Redis",
         "PostgreSQL",
         "Nginx",
         "Docker",
-        "k6",
-        "Lua",
       ],
       links: [
+        { label: "Live Website", url: "https://ctrllink.sujalagrawal.in", kind: "live" },
         { label: "Source Code", url: "https://github.com/Agrawal-Sujal/CtrlLink", kind: "github" },
       ],
       timeline: [

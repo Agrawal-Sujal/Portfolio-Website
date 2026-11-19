@@ -4,8 +4,7 @@ import { usePortfolio } from "../data/PortfolioContext";
 import Icon from "./Icon";
 
 const nav = [
-  { to: "/", label: "Home", icon: "home", end: true },
-  { to: "/resume", label: "Resume", icon: "user" },
+  { to: "/", label: "Resume", icon: "user", end: true },
   { to: "/projects", label: "Projects", icon: "projects" },
 ];
 
@@ -37,7 +36,7 @@ export default function Rail() {
 
   return (
     <header className="rail">
-      <Link to="/" className="rail-home" aria-label={`${name} — home`}>
+      <Link to="/" className="rail-home" aria-label={name}>
         <Avatar src={avatar} name={name} />
       </Link>
       <nav className="rail-nav" aria-label="Primary">

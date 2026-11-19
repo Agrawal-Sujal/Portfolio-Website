@@ -1,8 +1,17 @@
+import { Link } from "react-router-dom";
 import { usePortfolio } from "../data/PortfolioContext";
+import { PROJECT_DETAILS } from "../data/projectDetails";
 import Icon from "../components/Icon";
+
+const linkIconName = {
+  github: "github",
+  live: "globe",
+  download: "download",
+};
 
 function ProjectCard({ project }) {
   const links = project.links || (project.link ? [project.link] : []);
+  const hasDetails = Boolean(PROJECT_DETAILS[project.id]);
 
   return (
     <article className={`project tone-${project.tone || "indigo"}`}>
@@ -37,23 +46,31 @@ function ProjectCard({ project }) {
           ))}
         </ul>
 
-        {links.length > 0 && (
+        {(links.length > 0 || hasDetails) && (
           <div className="project-foot">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                className={`project-link ${link.kind === "github" ? "is-source" : "is-demo"}`}
-                href={link.url || undefined}
-                aria-disabled={!link.url}
-                {...(link.url ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              >
-                <Icon
-                  name={link.kind === "github" ? "github" : link.kind === "download" ? "download" : "arrow-up-right"}
-                  size={16}
-                />
-                {link.label}
-              </a>
-            ))}
+            {links.length > 0 && (
+              <div className="project-links">
+                {links.map((link) => (
+                  <a
+                    key={link.label}
+                    className={`project-link ${link.kind === "github" ? "is-source" : "is-demo"}`}
+                    href={link.url || undefined}
+                    aria-disabled={!link.url}
+                    {...(link.url ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
+                    <Icon name={linkIconName[link.kind] || "arrow-up-right"} size={16} />
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {hasDetails && (
+              <Link className="project-learn-btn" to={`/projects/${project.id}`}>
+                <span>Learn more about this project</span>
+                <Icon name="arrow-right" size={16} />
+              </Link>
+            )}
           </div>
         )}
       </div>

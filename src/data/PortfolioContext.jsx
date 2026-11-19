@@ -5,8 +5,6 @@ import { defaults } from "./defaults";
 
 const SINGLES = ["profile", "skills"]; // each lives at {name}/main
 const LISTS = [
-  "highlights",
-  "proficiency",
   "experience",
   "education",
   "achievements",
